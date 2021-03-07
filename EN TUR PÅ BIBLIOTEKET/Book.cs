@@ -38,24 +38,27 @@ namespace EN_TUR_PÅ_BIBLIOTEKET
         }
 
 
-        //this is the number of this book at the libirry
-        private int count;
+        //this is the number of this book at the libirry so the book will never be removed from a list but removed in count
+        private int leftInStock;
 
-        public int Count
+        public int LeftInStock
         {
             
-            get { return count; }
-            set { count = value; }
+            get { return leftInStock; }
+            set { leftInStock = value; }
         }
 
+        //this is the default construktor
         public Book() { }
 
+
+        //this is the construktor
         public Book(string name, string auther, int releasedate, int count) 
         {
             this.name = name;
             this.auther = auther;
             this.releasedate = releasedate;
-            this.count = count;
+            this.leftInStock = count;
 
         }
 
@@ -64,7 +67,7 @@ namespace EN_TUR_PÅ_BIBLIOTEKET
 
         public void AddCount(Book book)
         {
-            book.count++;
+            book.leftInStock++;
         }
 
 

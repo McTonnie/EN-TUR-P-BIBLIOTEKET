@@ -15,7 +15,7 @@ namespace EN_TUR_PÅ_BIBLIOTEKET
         static void Main(string[] args)
         {
 
-            Book harryPotter1 = new Book("Harry Potter og de vises sten", "JK Rowling " , 1997, 5);
+            Book harryPotter1 = new Book("Harry Potter og de vises sten", "JK Rowling " , 1997, 1);
             bookList.AddToList(harryPotter1);
             Book percyJackson1 = new Book("Percy Jacson og lyntyven", "Rick riodan " ,2005, 9);
             bookList.AddToList(percyJackson1);
@@ -41,20 +41,32 @@ namespace EN_TUR_PÅ_BIBLIOTEKET
             do
             {
 
+            Console.Clear();
             //printing out the bokks and the number of it 
             Console.WriteLine("Find books you want to borrow");
             Console.WriteLine();
             for (int i = 0; i < bookList.AvailbleBooks.Count(); i++)
             {
-                Console.WriteLine((i + 1) + ") " + bookList.AvailbleBooks[i].Name + "    Left in stock " + bookList.AvailbleBooks[i].Count);
+                    // the + 1 is so the user dont have tp press 0 (only for showcase)
+                Console.WriteLine((i + 1) + ") " + bookList.AvailbleBooks[i].Name + "    Left in stock " + bookList.AvailbleBooks[i].LeftInStock);
             }
 
-
+                
                 Console.WriteLine();
                 Console.WriteLine("What book do you want to add");
-                int userchoise = Convert.ToInt32(Console.ReadLine());
-                bookStack.Addbook(bookList.AvailbleBooks[userchoise - 1]);
-                bookList.RemoveFromList(bookList.AvailbleBooks[userchoise - 1]);
+                int userchoise = Convert.ToInt32(Console.ReadLine()) - 1;
+                if (bookList.AvailbleBooks[userchoise].LeftInStock > 0)
+                {
+                    bookStack.Addbook(bookList.AvailbleBooks[userchoise]);
+                    bookList.RemoveFromList(bookList.AvailbleBooks[userchoise]);
+                    
+                }
+                else
+                {
+                    Console.WriteLine("The book is not available at the time");
+                }
+
+
 
 
                 Console.WriteLine("Do you want to borrow more books");

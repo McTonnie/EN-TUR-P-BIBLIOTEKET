@@ -11,7 +11,7 @@ namespace EN_TUR_PÅ_BIBLIOTEKET
 
         private Stack<Book> bookInStack = new Stack<Book>();
 
-
+        //calling this will return th eprivate Stack bookInStack
         public Stack<Book> BookInStack 
         {
             get { return bookInStack; }
@@ -20,7 +20,7 @@ namespace EN_TUR_PÅ_BIBLIOTEKET
         public BookStack() { }
 
 
-        
+        //adding a book
         public void Addbook(Book book)
         {
             bookInStack.Push(book);
@@ -29,6 +29,8 @@ namespace EN_TUR_PÅ_BIBLIOTEKET
         {
             bookInStack.Pop();
         }
+
+        //this is basicly for checking if there is anything ledt in the stack wantes to try something new
         public bool CheckNext()
         {
 
